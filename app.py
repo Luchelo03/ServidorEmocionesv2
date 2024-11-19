@@ -8,6 +8,11 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
+@app.route("/")
+def home():
+    return "¡Servidor funcionando correctamente en Render!"
+
+
 @app.route("/upload_video", methods=["POST"])
 def upload_video():
     if "video" not in request.files:
